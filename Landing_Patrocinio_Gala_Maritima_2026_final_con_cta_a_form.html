@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gala Marítima Panamá 2026 · Patrocinios</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@300;400&family=Inter:wght@100;200;300&family=Playfair+Display:ital,wght@0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --black:  #060606;
+  --black2: #0C0C0C;
+  --gold:   #C9A84C;
+  --gold2:  #E8C96A;
+  --off:    #F0EBE0;
+  --white:  #FFFFFF;
+  --gray1:  #888880;
+  --gray2:  #333330;
+  --muted:  rgba(255,255,255,0.38);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--black);
+  color: var(--white);
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 300;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ── GRAIN ─────────────────────────────────────── */
+body::after {
+  content: '';
+  position: fixed; inset: 0; z-index: 9999;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+  opacity: 0.028;
+}
+
+/* ── NAV ────────────────────────────────────────── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  padding: 24px 48px;
+  display: flex; justify-content: space-between; align-items: center;
+  transition: all 0.4s ease;
+}
+nav.scrolled {
+  background: rgba(6,6,6,0.94);
+  backdrop-filter: blur(20px);
+  padding: 16px 48px;
+  border-bottom: 1px solid rgba(201,168,76,0.1);
+}
+.nav-logo {
+  font-family: 'Cormorant', serif;
+  font-size: 17px; font-weight: 600;
+  letter-spacing: 0.5px; color: var(--white);
+  line-height: 1.2;
+}
+.nav-logo span { color: var(--gold); }
+.nav-cta {
+  font-size: 11px; font-weight: 500;
+  letter-spacing: 2px; text-transform: uppercase;
+  color: var(--black); background: var(--gold);
+  padding: 10px 24px; text-decoration: none;
+  transition: all 0.2s;
+}
+.nav-cta:hover { background: var(--gold2); transform: translateY(-1px); }
+
+/* ── HERO ───────────────────────────────────────── */
+.hero {
+  min-height: 100vh;
+  display: flex; flex-direction: column;
+  justify-content: center; align-items: center;
+  text-align: center;
+  padding: 120px 24px 80px;
+  position: relative;
+}
+
+.hero-glow {
+  position: absolute; top: 40%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 700px; height: 500px;
+  background: radial-gradient(ellipse, rgba(201,168,76,0.07) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.hero-line {
+  width: 1px; height: 56px;
+  background: linear-gradient(to bottom, transparent, var(--gold));
+  margin: 0 auto 40px;
+  animation: fadeIn 1s ease 0.2s both;
+}
+
+.hero-tag {
+  font-size: 10px; font-weight: 500;
+  letter-spacing: 5px; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 28px;
+  animation: fadeUp 0.8s ease 0.4s both;
+}
+
+.hero-h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(32px, 5.5vw, 74px);
+  font-weight: 700; line-height: 1.0;
+  letter-spacing: -1.5px; color: var(--white);
+  margin-bottom: 40px; white-space: nowrap;
+  animation: fadeUp 1s ease 0.5s both;
+}
+.hero-h1 em {
+  font-style: italic; color: var(--gold);
+  font-weight: 400;
+}
+
+.hero-h2 { display: none; }
+
+.hero-sub {
+  font-size: 15px; font-weight: 300;
+  line-height: 1.7; color: var(--muted);
+  max-width: 480px; margin: 0 auto 48px;
+  animation: fadeUp 0.8s ease 0.75s both;
+}
+.hero-sub strong { color: rgba(255,255,255,0.75); font-weight: 400; }
+
+/* ── COUNTDOWN ──────────────────────────────────── */
+.countdown-wrap {
+  margin-bottom: 52px;
+  animation: fadeUp 0.8s ease 0.85s both;
+}
+.countdown-label {
+  font-size: 10px; letter-spacing: 4px; text-transform: uppercase;
+  color: var(--gray1); margin-bottom: 20px;
+}
+.countdown {
+  display: flex; gap: 0; align-items: stretch;
+}
+.cd-unit {
+  display: flex; flex-direction: column; align-items: center;
+  min-width: 56px;
+  position: relative;
+}
+.cd-unit:not(:last-child)::after {
+  content: none;
+}
+.cd-num {
+  font-family: 'Inter', sans-serif;
+  font-size: 28px;
+  font-weight: 200; line-height: 1;
+  color: rgba(255,255,255,0.75); letter-spacing: 3px;
+  transition: transform 0.15s ease;
+}
+.cd-num.flip {
+  transform: translateY(-4px);
+}
+.cd-label {
+  font-size: 8px; letter-spacing: 3px; text-transform: uppercase;
+  color: rgba(255,255,255,0.65); margin-top: 5px;
+}
+
+/* ── CTA BUTTONS ────────────────────────────────── */
+.hero-actions {
+  display: flex; align-items: center; gap: 20px;
+  flex-wrap: wrap; justify-content: center;
+  animation: fadeUp 0.8s ease 0.95s both;
+}
+.btn-main {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 12px; font-weight: 500;
+  letter-spacing: 2px; text-transform: uppercase;
+  color: var(--black); background: var(--gold);
+  padding: 17px 40px; text-decoration: none;
+  display: inline-block; position: relative;
+  overflow: hidden; transition: all 0.25s;
+  border-radius: 8px;
+}
+.btn-main::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+  transform: translateX(-100%); transition: transform 0.5s;
+}
+.btn-main:hover { background: var(--gold2); transform: translateY(-2px); box-shadow: 0 12px 40px rgba(201,168,76,0.2); }
+.btn-main:hover::before { transform: translateX(100%); }
+
+.btn-ghost {
+  font-size: 12px; font-weight: 400;
+  letter-spacing: 1.5px; text-transform: uppercase;
+  color: var(--gray1); text-decoration: none;
+  transition: color 0.2s;
+  display: flex; align-items: center; gap: 8px;
+}
+.btn-ghost:hover { color: var(--white); }
+.btn-ghost svg { transition: transform 0.2s; }
+.btn-ghost:hover svg { transform: translateY(3px); }
+
+/* ── SCROLL INDICATOR ───────────────────────────── */
+.scroll-line {
+  position: absolute; bottom: 36px; left: 50%; transform: translateX(-50%);
+  display: flex; flex-direction: column; align-items: center; gap: 6px;
+  animation: fadeIn 1s ease 1.6s both;
+}
+.scroll-bar {
+  width: 1px; height: 44px;
+  background: linear-gradient(to bottom, var(--gold), transparent);
+  animation: scrollPulse 2s ease infinite;
+}
+
+/* ── MARQUEE ────────────────────────────────────── */
+.marquee-section {
+  border-top: 1px solid var(--gray2);
+  border-bottom: 1px solid var(--gray2);
+  padding: 16px 0; overflow: hidden;
+  background: var(--black2);
+}
+.marquee-track {
+  display: flex; white-space: nowrap;
+  animation: marquee 28s linear infinite;
+}
+.marquee-item {
+  font-size: 10px; letter-spacing: 4px; text-transform: uppercase;
+  color: var(--gray2); padding: 0 48px; flex-shrink: 0;
+}
+.marquee-item span { color: var(--gold); }
+
+/* ── STATS ──────────────────────────────────────── */
+.stats-section {
+  padding: 110px 48px;
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  border-bottom: 1px solid var(--gray2);
+}
+.stat {
+  padding: 40px 40px;
+  border-right: 1px solid var(--gray2);
+  opacity: 0; transform: translateY(24px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.stat:last-child { border-right: none; }
+.stat.visible { opacity: 1; transform: translateY(0); }
+.stat-n {
+  font-family: 'Cormorant', serif;
+  font-size: clamp(52px, 5.5vw, 80px);
+  font-weight: 300; line-height: 1;
+  color: var(--white); letter-spacing: -2px;
+  display: block; margin-bottom: 12px;
+}
+.stat-n em { color: var(--gold); font-style: normal; }
+.stat-l {
+  font-size: 10px; letter-spacing: 3px; text-transform: uppercase;
+  color: var(--gray1); display: block; margin-bottom: 8px;
+}
+.stat-d {
+  font-size: 13px; color: rgba(255,255,255,0.3);
+  line-height: 1.5; font-weight: 300;
+}
+
+/* ── ARGUMENT SECTION ───────────────────────────── */
+.arg-section {
+  padding: 120px 48px;
+  max-width: 960px; margin: 0 auto;
+  border-bottom: 1px solid var(--gray2);
+}
+.section-eyebrow {
+  font-size: 10px; letter-spacing: 5px; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 20px; display: block;
+}
+.section-h {
+  font-family: 'Cormorant', serif;
+  font-size: clamp(38px, 4.5vw, 64px);
+  font-weight: 300; line-height: 1.1;
+  color: var(--white); margin-bottom: 32px;
+}
+.section-h em { font-style: italic; color: var(--gold); }
+
+.arg-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 2px; margin-top: 60px;
+}
+.arg-card {
+  background: var(--black2);
+  padding: 40px 36px;
+  position: relative; overflow: hidden;
+  transition: background 0.3s;
+  opacity: 0; transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease, background 0.3s;
+}
+.arg-card.visible { opacity: 1; transform: translateY(0); }
+.arg-card:hover { background: #111110; }
+.arg-card::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0;
+  height: 1px; background: var(--gray2);
+  transition: background 0.3s;
+}
+.arg-card:hover::before { background: var(--gold); }
+.arg-num {
+  font-family: 'Cormorant', serif;
+  font-size: 48px; font-weight: 300;
+  color: var(--gray2); line-height: 1;
+  margin-bottom: 20px; display: block;
+}
+.arg-title {
+  font-family: 'Cormorant', serif;
+  font-size: 22px; font-weight: 600;
+  color: var(--white); margin-bottom: 10px;
+  line-height: 1.2;
+}
+.arg-body {
+  font-size: 13px; color: rgba(255,255,255,0.4);
+  line-height: 1.7; font-weight: 300;
+}
+
+/* ── TIERS ──────────────────────────────────────── */
+.tiers-section {
+  padding: 120px 48px;
+  border-bottom: 1px solid var(--gray2);
+}
+.tiers-header {
+  text-align: center; margin-bottom: 72px;
+}
+.tiers-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 2px; max-width: 1000px; margin: 0 auto;
+}
+.tier {
+  background: var(--black2);
+  padding: 48px 36px;
+  position: relative;
+  opacity: 0; transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.tier.visible { opacity: 1; transform: translateY(0); }
+.tier-top {
+  position: absolute; top: 0; left: 0; right: 0;
+  height: 1px; background: var(--gray2);
+  transition: background 0.3s;
+}
+.tier:hover .tier-top { background: var(--gold); }
+.tier.featured { background: rgba(201,168,76,0.06); }
+.tier.featured .tier-top { background: var(--gold); }
+.tier-badge {
+  font-size: 9px; letter-spacing: 3px; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 20px; display: block;
+}
+.tier-name {
+  font-family: 'Cormorant', serif;
+  font-size: 34px; font-weight: 600;
+  color: var(--white); margin-bottom: 6px;
+}
+.tier-price {
+  font-size: 12px; color: var(--gray1);
+  letter-spacing: 1px; margin-bottom: 32px;
+  display: block;
+}
+.tier-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.tier-list li {
+  font-size: 13px; font-weight: 300;
+  color: rgba(255,255,255,0.5); line-height: 1.4;
+  display: flex; gap: 10px; align-items: flex-start;
+}
+.tier-list li::before {
+  content: '—'; color: var(--gold); flex-shrink: 0;
+  font-size: 11px; margin-top: 2px;
+}
+
+/* ── FINAL CTA ──────────────────────────────────── */
+.cta-section {
+  padding: 160px 48px;
+  text-align: center; position: relative;
+  overflow: hidden;
+}
+.cta-glow {
+  position: absolute; top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 800px; height: 600px;
+  background: radial-gradient(ellipse, rgba(201,168,76,0.06) 0%, transparent 70%);
+  pointer-events: none;
+}
+.cta-h {
+  font-family: 'Cormorant', serif;
+  font-size: clamp(48px, 7vw, 96px);
+  font-weight: 300; line-height: 0.95;
+  color: var(--white); margin-bottom: 12px;
+}
+.cta-h em { font-style: italic; color: var(--gold); }
+.cta-sub {
+  font-size: 15px; color: var(--muted);
+  max-width: 400px; margin: 0 auto 52px;
+  line-height: 1.7; font-weight: 300;
+}
+.cta-note {
+  margin-top: 22px; font-size: 10px;
+  letter-spacing: 2.5px; text-transform: uppercase;
+  color: var(--gray2);
+}
+.cta-note em { color: var(--gold); font-style: normal; }
+
+/* ── FOOTER ─────────────────────────────────────── */
+footer {
+  padding: 44px 48px;
+  border-top: 1px solid var(--gray2);
+  display: flex; justify-content: space-between;
+  align-items: center; flex-wrap: wrap; gap: 16px;
+}
+.footer-brand {
+  font-family: 'Cormorant', serif;
+  font-size: 15px; font-weight: 600;
+  color: var(--white);
+}
+.footer-brand span { color: var(--gold); }
+.footer-copy {
+  font-size: 11px; color: var(--gray2);
+}
+
+/* ── ANIMATIONS ─────────────────────────────────── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes scrollPulse {
+  0%   { opacity: 0; transform: scaleY(0); transform-origin: top; }
+  50%  { opacity: 1; transform: scaleY(1); }
+  100% { opacity: 0; transform: scaleY(0); transform-origin: bottom; }
+}
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* ── RESPONSIVE ─────────────────────────────────── */
+@media (max-width: 900px) {
+  nav { padding: 20px 24px; }
+  nav.scrolled { padding: 14px 24px; }
+  .stats-section { grid-template-columns: repeat(2, 1fr); padding: 80px 24px; }
+  .stat { border-right: none; border-bottom: 1px solid var(--gray2); }
+  .stat:nth-child(odd) { border-right: 1px solid var(--gray2); }
+  .arg-section { padding: 80px 24px; }
+  .arg-grid { grid-template-columns: 1fr; }
+  .tiers-section { padding: 80px 24px; }
+  .tiers-grid { grid-template-columns: 1fr; }
+  .cta-section { padding: 100px 24px; }
+  footer { padding: 36px 24px; }
+  .cd-unit { min-width: 70px; }
+}
+@media (max-width: 480px) {
+  .hero { padding: 100px 20px 70px; }
+  .stats-section { grid-template-columns: 1fr; }
+  .stat { border-right: none !important; }
+  .countdown { gap: 0; }
+  .cd-unit { min-width: 60px; }
+  .cd-num { font-size: 44px; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="nav-logo">Gala Marítima <span>· Panamá</span></div>
+  <a href="Formulario_Gala_Maritima_2026_4_6_FUNCIONAL.html" class="nav-cta">Patrocinar</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-glow"></div>
+  <div class="hero-line"></div>
+
+  <p class="hero-tag">Cámara Marítima de Panamá · 40 años de liderazgo</p>
+
+  <h1 class="hero-h1">La gala del <em>sector marítimo</em></h1>
+
+  <p class="hero-sub">
+    El <strong>7 y 8 de mayo</strong>, los líderes del ecosistema marítimo panameño se reúnen en el Megapolis Convention Center.<br>
+    <strong>Quedan pocos cupos de patrocinio.</strong>
+  </p>
+
+  <div class="countdown-wrap">
+    <p class="countdown-label">Tiempo hasta el evento</p>
+    <div class="countdown">
+      <div class="cd-unit">
+        <span class="cd-num" id="cd-days">00</span>
+        <span class="cd-label">Días</span>
+      </div>
+      <div class="cd-unit">
+        <span class="cd-num" id="cd-hours">00</span>
+        <span class="cd-label">Horas</span>
+      </div>
+      <div class="cd-unit">
+        <span class="cd-num" id="cd-mins">00</span>
+        <span class="cd-label">Min</span>
+      </div>
+      <div class="cd-unit">
+        <span class="cd-num" id="cd-secs">00</span>
+        <span class="cd-label">Seg</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-actions">
+    <a href="Formulario_Gala_Maritima_2026_4_6_FUNCIONAL.html" class="btn-main">Solicitar información de patrocinio</a>
+    <a href="#patrocinios" class="btn-ghost">
+      Ver categorías
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+        <path d="M7 2v10M2 7l5 5 5-5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </a>
+  </div>
+
+  <div class="scroll-line">
+    <div class="scroll-bar"></div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-section">
+  <div class="marquee-track">
+    <span class="marquee-item">Gala Marítima Panamá 2026 <span>·</span></span>
+    <span class="marquee-item">7 y 8 de Mayo <span>·</span></span>
+    <span class="marquee-item">Megapolis Convention Center <span>·</span></span>
+    <span class="marquee-item">200+ Empresas Afiliadas <span>·</span></span>
+    <span class="marquee-item">40 Años CMP <span>·</span></span>
+    <span class="marquee-item">Patrocinios Limitados <span>·</span></span>
+    <span class="marquee-item">Hub Marítimo Estratégico <span>·</span></span>
+    <span class="marquee-item">Gala Marítima Panamá 2026 <span>·</span></span>
+    <span class="marquee-item">7 y 8 de Mayo <span>·</span></span>
+    <span class="marquee-item">Megapolis Convention Center <span>·</span></span>
+    <span class="marquee-item">200+ Empresas Afiliadas <span>·</span></span>
+    <span class="marquee-item">40 Años CMP <span>·</span></span>
+    <span class="marquee-item">Patrocinios Limitados <span>·</span></span>
+    <span class="marquee-item">Hub Marítimo Estratégico <span>·</span></span>
+  </div>
+</div>
+
+<!-- STATS -->
+<section class="stats-section">
+  <div class="stat">
+    <span class="stat-n">40<em>+</em></span>
+    <span class="stat-l">Años de historia</span>
+    <p class="stat-d">La CMP lidera y representa al sector marítimo panameño desde 1982.</p>
+  </div>
+  <div class="stat" style="transition-delay:0.1s">
+    <span class="stat-n">200<em>+</em></span>
+    <span class="stat-l">Empresas afiliadas</span>
+    <p class="stat-d">El directorio más completo del ecosistema marítimo de la región.</p>
+  </div>
+  <div class="stat" style="transition-delay:0.2s">
+    <span class="stat-n"><em>$</em>5K</span>
+    <span class="stat-l">Inversión de patrocinio</span>
+    <p class="stat-d">El acceso al evento de mayor prestigio del sector marítimo panameño. Una inversión que un solo contrato nuevo paga muchas veces.</p>
+  </div>
+  <div class="stat" style="transition-delay:0.3s">
+    <span class="stat-n">1<em>ª</em></span>
+    <span class="stat-l">Cita del sector</span>
+    <p class="stat-d">El evento de networking más esperado del año en la industria marítima panameña.</p>
+  </div>
+</section>
+
+<!-- ARGUMENT SECTION -->
+<section class="arg-section">
+  <span class="section-eyebrow">Por qué patrocinar</span>
+  <h2 class="section-h">No es publicidad.<br>Es <em>acceso.</em></h2>
+
+  <div class="arg-grid">
+    <div class="arg-card">
+      <span class="arg-num">01</span>
+      <div class="arg-title">La sala correcta</div>
+      <p class="arg-body">En una noche tienes acceso a los decisores de las 200+ empresas más importantes del sector marítimo panameño. Por canales normales, eso tomaría meses.</p>
+    </div>
+    <div class="arg-card" style="transition-delay:0.1s">
+      <span class="arg-num">02</span>
+      <div class="arg-title">ROI medible</div>
+      <p class="arg-body">Un solo contrato cerrado esa noche paga el patrocinio muchas veces. Las empresas que repiten cada año lo saben por experiencia propia.</p>
+    </div>
+    <div class="arg-card" style="transition-delay:0.15s">
+      <span class="arg-num">03</span>
+      <div class="arg-title">Posicionamiento instantáneo</div>
+      <p class="arg-body">Patrocinar la Gala asocia tu marca al evento de referencia del sector. El mercado lee esa señal como parte del núcleo de la industria.</p>
+    </div>
+    <div class="arg-card" style="transition-delay:0.2s">
+      <span class="arg-num">04</span>
+      <div class="arg-title">El timing es perfecto</div>
+      <p class="arg-body">La Gala sucede cuando el sector cierra ciclos y abre conversaciones para el siguiente año. Es el contexto ideal para estar presente.</p>
+    </div>
+  </div>
+</section>
+
+<!-- TIERS -->
+<section class="tiers-section" id="patrocinios">
+  <div class="tiers-header">
+    <span class="section-eyebrow">Categorías disponibles</span>
+    <h2 class="section-h" style="text-align:center">Elige tu <em>nivel</em><br>de presencia.</h2>
+  </div>
+
+  <div class="tiers-grid">
+    <div class="tier" style="transition-delay:0s">
+      <div class="tier-top"></div>
+      <span class="tier-badge">Categoría base</span>
+      <div class="tier-name">Plata</div>
+      <span class="tier-price">Desde USD 5,000</span>
+      <ul class="tier-list">
+        <li>Logo en todos los materiales del evento</li>
+        <li>Mesa corporativa para tu equipo</li>
+        <li>Mención en comunicaciones oficiales CMP</li>
+        <li>Acceso al directorio de asistentes</li>
+        <li>Visibilidad en redes sociales del evento</li>
+      </ul>
+    </div>
+
+    <div class="tier featured" style="transition-delay:0.1s">
+      <div class="tier-top"></div>
+      <span class="tier-badge">Categoría destacada ✦</span>
+      <div class="tier-name">Oro</div>
+      <span class="tier-price">Consultar disponibilidad</span>
+      <ul class="tier-list">
+        <li>Todo lo de Categoría Plata</li>
+        <li>Presencia en escenario y pantallas</li>
+        <li>Intervención en el programa oficial</li>
+        <li>Reuniones pre-evento con asistentes clave</li>
+        <li>Material físico en mesa de bienvenida</li>
+        <li>Cobertura fotográfica con branding</li>
+      </ul>
+    </div>
+
+    <div class="tier" style="transition-delay:0.2s">
+      <div class="tier-top"></div>
+      <span class="tier-badge">Categoría premium</span>
+      <div class="tier-name">Platino</div>
+      <span class="tier-price">Cupos muy limitados</span>
+      <ul class="tier-list">
+        <li>Todo lo de Categoría Oro</li>
+        <li>Naming rights en sección del evento</li>
+        <li>Speaking slot confirmado en agenda</li>
+        <li>Acceso VIP y mesa prioritaria</li>
+        <li>Campaña de contenido pre-evento</li>
+        <li>Reunión estratégica post-evento con directiva CMP</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="cta-section">
+  <div class="cta-glow"></div>
+  <span class="section-eyebrow" style="animation:fadeUp 0.8s ease both" id="cta-eye">Cupos limitados · 2026</span>
+  <h2 class="cta-h">Los líderes<br>ya están <em>adentro.</em></h2>
+  <p class="cta-sub">Solo quedan pocos espacios disponibles. Las empresas que mueven el sector marítimo de Panamá estarán en esta sala el 7 de mayo. ¿Estará la tuya?</p>
+  <a href="Formulario_Gala_Maritima_2026_4_6_FUNCIONAL.html" class="btn-main">Solicitar información ahora</a>
+  <p class="cta-note">Respuesta en menos de <em>24 horas</em> · Cupos limitados</p>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">Gala Marítima <span>Panamá 2026</span></div>
+  <span class="footer-copy">© 2026 Cámara Marítima de Panamá</span>
+</footer>
+
+<script>
+// ── NAV SCROLL ────────────────────────────────────
+window.addEventListener('scroll', () => {
+  document.getElementById('nav').classList.toggle('scrolled', scrollY > 60);
+});
+
+// ── COUNTDOWN ────────────────────────────────────
+function updateCountdown() {
+  const target = new Date('2026-05-07T18:30:00-05:00').getTime();
+  const now    = Date.now();
+  const diff   = Math.max(0, target - now);
+
+  const d  = Math.floor(diff / 86400000);
+  const h  = Math.floor((diff % 86400000) / 3600000);
+  const m  = Math.floor((diff % 3600000)  / 60000);
+  const s  = Math.floor((diff % 60000)    / 1000);
+
+  const pad = n => String(n).padStart(2, '0');
+
+  const set = (id, val) => {
+    const el = document.getElementById(id);
+    if (el && el.textContent !== val) {
+      el.classList.add('flip');
+      setTimeout(() => { el.textContent = val; el.classList.remove('flip'); }, 80);
+    }
+  };
+
+  set('cd-days',  pad(d));
+  set('cd-hours', pad(h));
+  set('cd-mins',  pad(m));
+  set('cd-secs',  pad(s));
+}
+updateCountdown();
+setInterval(updateCountdown, 1000);
+
+// ── SCROLL REVEAL ────────────────────────────────
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.stat, .arg-card, .tier').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
